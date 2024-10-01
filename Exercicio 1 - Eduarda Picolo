@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+//Técnica 1
+void sequenciaF (int V[10])
+{
+    V[0] = 0;
+    V[1] = 1;
+    for (int i = 2; i < 10 ; i++)
+    {
+        V[i] = V[i-2]+ V[i-1];
+    }
+}
+bool numNaSequencia (int V[10] , int n)
+{
+    bool presente = false;
+    for (int i = 0 ; i < 10 ; i++)
+    {
+        if (V[i] == n)
+        {
+            presente = true;
+        }
+    }
+    return presente;
+}
+int main ()
+{
+    int V[10]; 
+    /* só calculei a sequência de Fibonacci até o número de posicao 10 por ser mais rapido de rodar. 
+    porém a alteração é simples, basta aumentar o vetor V de [10] para [100] e no FOR das funções sequenciaF
+    e numNaSequencia alterar o valor maximo de i para 100 (i < 100).
+    */
+    sequenciaF(V);
+    int num;
+    cout << "Digite um numero: " << endl;
+    cin >> num;
+    sequenciaF (V);
+    bool resposta = numNaSequencia (V , num);
+    if (resposta == true)
+    {
+        cout << "O número " << num << " Está presente na sequência de Fibonacci" << endl;
+    }
+    else
+    {
+        cout << "O número " << num << " Não está presente na sequência de Fibonacci" << endl;
+    }
+    return 0;
+}
