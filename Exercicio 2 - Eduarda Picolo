@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+//Técnica 2 
+
+int contar (char s[50])
+{
+    int count = 0;
+    int tamanho = strlen (s);
+    for (int i =0 ; i < tamanho ; i++)
+    {
+        if (s[i] == 'a' || s[i] == 'A')
+        {
+            count +=1;
+        }
+    }
+    return count;
+}
+
+
+int main () 
+{
+    char string [50];
+    cout << "Digite algo para a string: " << endl;
+    cin.getline (string , 50);
+    
+    int resposta = contar (string);
+    cout << "O número de vezes que a letra 'a' aparece na string " << string << " vale: " << resposta << endl;
+
+    return 0;
+}
